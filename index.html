@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📟</text></svg>">
+    <title>Work Hours Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Work Hours & Earnings Calculator</h1>
+        <input type="file" id="file" accept=".csv">
+        <div id="error-message" class="error-message"></div>
+        <div class="date-picker">
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date">
+            <label for="end-date">End Date:</label>
+            <input type="date" id="end-date">
+        </div>
+        <button id="calculate">Calculate</button>
+        <div class="results">
+            <p class="work-hours">Between <span id="start-date-display"></span> and <span id="end-date-display"></span>, you worked <span id="total-hours"><strong></strong></span> hours.</p>
+            <p class="money">You made a total of <span id="total-earnings"></span> $.</p>
+            <p class="per-min">This means you earned <span id="earnings-per-minute"></span> $ per minute.</p>
+        </div>
+        <p class="template-info">Need help? Download the <a href="example.csv" id="template-link" download>example CSV file</a>.</p>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+/* General reset for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #007bff, #6c757d);
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 90%; /* Adjust height to fit within the viewport */
+    overflow: hidden; /* Prevent scrolling inside the container */
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.6rem;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+input[type="file"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #0056b3;
+    transform: scale(1.02);
+}
+
+.results {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.results p {
+    font-size: 1rem;
+    color: #333;
+    margin: 5px 0;
+}
+
+.template-info {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+}
+
+.template-info a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.template-info a:hover {
+    text-decoration: underline;
+}
+
+/* Adjustments for smaller screens */
+@media (max-height: 600px) {
+    .container {
+        height: 95%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    input[type="file"],
+    input[type="date"],
+    button {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .results p {
+        font-size: 0.85rem;
+    }
+}
