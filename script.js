@@ -44,24 +44,29 @@ function calculateMetrics(data, startDate, endDate) {
   let totalEarnings = 0;
 
   data.forEach(row => {
-      const workDate = new Date(row['workDate']);
-      if (workDate >= startDate && workDate <= endDate) {
-          const duration = parseDuration(row['duration']);
-          const payout = parseFloat(row['payout'].replace('$', ''));
-          totalMinutes += duration;
-          totalEarnings += payout;
-      }
+    const workDate = new Date(row['workDate']);
+    if (workDate >= startDate && workDate <= endDate) {
+      const duration = parseDuration(row['duration']);
+      const payout = parseFloat(row['payout'].replace('$', ''));
+      totalMinutes += duration;
+      totalEarnings += payout;
+    }
   });
 
   const earningsPerMinute = totalMinutes > 0 ? (totalEarnings / totalMinutes).toFixed(2) : 0;
 
+  // Convert total minutes to hours and minutes
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = Math.round(totalMinutes % 60);
+
   // Update the UI
   document.getElementById('start-date-display').textContent = startDate.toLocaleDateString();
   document.getElementById('end-date-display').textContent = endDate.toLocaleDateString();
-  document.getElementById('total-hours').textContent = (totalMinutes / 60).toFixed(2);
+  document.getElementById('total-hours').textContent = `${hours} hours and ${minutes} minutes`;
   document.getElementById('total-earnings').textContent = totalEarnings.toFixed(2);
   document.getElementById('earnings-per-minute').textContent = earningsPerMinute;
 }
+
 
 function parseDuration(duration) {
   let hours = 0, minutes = 0, seconds = 0;
