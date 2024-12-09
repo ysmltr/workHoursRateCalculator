@@ -9,14 +9,16 @@ document.getElementById('calculate').addEventListener('click', () => {
       return;
   }
 
+  
+
   Papa.parse(fileInput.files[0], {
       header: true,
       complete: (results) => {
           const data = results.data;
 
           // Validate CSV structure
-          const requiredColumns = ['workDate', 'duration', 'payout'];
-          const headers = Object.keys(data[0]);
+          const headers = Object.keys(data[0]).map(header => header.toLowerCase());
+const requiredColumns = ['workdate', 'duration', 'payout'];
           const isValidFile = requiredColumns.every(col => headers.includes(col));
 
           if (!isValidFile) {
@@ -37,7 +39,9 @@ function showError(message) {
   const errorMessage = document.getElementById('error-message');
   errorMessage.textContent = message;
   errorMessage.style.display = 'block';
+  setTimeout(() => errorMessage.style.display = 'none', 5000); 
 }
+
 
 function calculateMetrics(data, startDate, endDate) {
   let totalMinutes = 0;
@@ -51,9 +55,13 @@ function calculateMetrics(data, startDate, endDate) {
       totalMinutes += duration;
       totalEarnings += payout;
     }
+    if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+      showError('Please select valid start and end dates!');
+      return;
+  }
   });
 
-  const earningsPerMinute = totalMinutes > 0 ? (totalEarnings / totalMinutes).toFixed(2) : 0;
+  const earningsPerMinute = totalMinutes > 0 ? (totalEarnings / totalMinutes).toFixed(2) : '0.00';
 
   // Convert total minutes to hours and minutes
   const hours = Math.floor(totalMinutes / 60);
