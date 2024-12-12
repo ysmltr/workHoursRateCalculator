@@ -17,7 +17,7 @@ body {
     overflow: hidden;
     overflow-y: auto;
 }
-#earnings-per-minute{
+#earnings-per-minute,#total-earnings,#total-hours{
     font-weight: bold;
 }
 
