@@ -17,6 +17,9 @@ body {
     overflow: hidden;
     overflow-y: auto;
 }
+#earnings-per-minute{
+    font-weight: bold;
+}
 
 .container {
     background: #fff;
