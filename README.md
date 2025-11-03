@@ -1,1 +1,1 @@
-live link here : [https://work-hours-rate-calculator.vercel.app](https://workhoursratecalculator.netlify.app/)
+live link here : [https://[https://workhoursratecalculator.netlify.app](https://workhoursratecalculator.netlify.app/)
